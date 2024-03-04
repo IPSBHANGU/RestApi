@@ -12,6 +12,7 @@ class SignInWithTokenViewController: UIViewController {
     let logoImageView = UIImageView()
     let tokenTextField = UITextField()
     let loginButton = UIButton(type: .system)
+    let githubLinkLabel = UILabel()
     
     // call Model
     let model = GithubModel()
@@ -50,11 +51,29 @@ class SignInWithTokenViewController: UIViewController {
         loginButton.layer.borderColor = UIColorHex().hexStringToUIColor(hex: "#24292e").cgColor
         loginButton.layer.borderWidth = 2.0
         
+        // linkLabel
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
+        let underlineAttributedString = NSAttributedString(string: "Generate Token", attributes: underlineAttribute)
+        githubLinkLabel.attributedText = underlineAttributedString
+        githubLinkLabel.textColor = .systemBlue
+        githubLinkLabel.textAlignment = .center
+        githubLinkLabel.isUserInteractionEnabled = true
+        githubLinkLabel.frame = CGRect(x: 40, y: loginButton.frame.maxY + 20, width: view.frame.width - 80, height: 30)
+        setupLinkLabel()
+        
         // Add to the view
         view.addSubview(logoImageView)
         view.addSubview(tokenTextField)
         view.addSubview(loginButton)
+        view.addSubview(githubLinkLabel)
     }
+    
+    func setupLinkLabel() {
+        // Add tap gesture
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openGithubTokenLink))
+        githubLinkLabel.addGestureRecognizer(tapGesture)
+    }
+
     
     func textFieldDelegate(){
         tokenTextField.delegate = self
@@ -75,6 +94,11 @@ class SignInWithTokenViewController: UIViewController {
 
             }
         }
+    }
+    
+    @objc func openGithubTokenLink() {
+        guard let url = URL(string: "https://github.com/settings/tokens") else { return }
+        UIApplication.shared.open(url)
     }
 }
 
