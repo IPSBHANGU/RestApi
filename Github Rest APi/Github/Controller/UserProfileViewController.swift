@@ -60,8 +60,10 @@ class UserProfileViewController: UIViewController {
         
         // UserBio
         bioLabel.font = UIFont.systemFont(ofSize: 16)
-        bioLabel.numberOfLines = 5
-        bioLabel.frame = CGRect(x: 20, y: userName.frame.maxY + 10, width: view.frame.width - 40, height: 100)
+        bioLabel.numberOfLines = 0
+        let bioText = userData?.bio ?? ""
+        let bioHeight = heightForView(text: bioText, font: bioLabel.font, width: view.frame.width - 40)
+        bioLabel.frame = CGRect(x: 20, y: userName.frame.maxY + 10, width: view.frame.width - 40, height: bioHeight)
         
         // UserEmail
         emailLable.font = UIFont.systemFont(ofSize: 16)
@@ -99,6 +101,15 @@ class UserProfileViewController: UIViewController {
         view.addSubview(following)
         view.addSubview(location)
         view.addSubview(reposCount)
+    }
+    
+    func heightForView(text: String, font: UIFont, width: CGFloat) -> CGFloat {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.font = font
+        label.text = text
+        label.sizeToFit()
+        return label.frame.height
     }
 }
 
