@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 struct GitHubUser: Codable {
     var name: String?
@@ -21,6 +23,7 @@ struct GitHubUser: Codable {
 }
 
 class GithubModel:NSObject {
+    // API
     func logIN(token: String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: GitHubUser?, _ error: String?) -> ()) {
         
         Network.connectWithServer(url: APIConstant.API.SignInWithPassword.apiUrl(), httpRequest: .GET, token: token) { isSucceeded, data, error, statusCode  in
@@ -45,5 +48,64 @@ class GithubModel:NSObject {
                 completionHandler(false, nil, error)
             }
         }
+    }
+    
+    // CoreData
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
+    // Insert Object
+    func insertDataObject(user: GitHubUser, token:String?) -> Result<Bool, Error> {
+        guard let context = appDelegate?.persistentContainer.viewContext else {
+            return .failure("no context" as! Error)
+        }
+        
+        let object = Github(context: context)
+        object.token = token     // User token for auth, will be used for further api usecase
+        
+        // convert struct to data
+        do {
+            let userData = try JSONEncoder().encode(user)
+            object.users = userData
+        } catch {
+            return .failure(error)
+        }
+        
+        // save context
+        do {
+            try context.save()
+            return .success(true)
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+    // check if there are any stored users available and return the count of objects
+    func getUsersCount() -> Int {
+        guard let context = appDelegate?.persistentContainer.viewContext else {
+            return 0
+        }
+        let fetchRequest: NSFetchRequest<Github> = Github.fetchRequest()
+        
+        do {
+            let count = try context.count(for: fetchRequest)
+            return count
+        } catch {
+            print("Error fetching data: \(error.localizedDescription)")
+            return 0
+        }
+    }
+    
+    // fetch user Object returns array of users
+    func fetchDataObject() -> [Github] {
+        var gitubObject:[Github] = []
+        if let context = appDelegate?.persistentContainer.viewContext {
+            let users: NSFetchRequest<Github> = Github.fetchRequest()
+            do {
+                gitubObject = try context.fetch(users)
+            } catch {
+                print("Error fetching student object: \(error.localizedDescription)")
+            }
+        }
+        return gitubObject
     }
 }

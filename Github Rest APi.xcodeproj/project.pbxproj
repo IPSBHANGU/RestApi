@@ -28,6 +28,8 @@
 		FB3488DD2B91E96000C604E5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488DB2B91E96000C604E5 /* UserProfileViewController.swift */; };
 		FB3488DE2B91E96000C604E5 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3488DC2B91E96000C604E5 /* UserProfileViewController.xib */; };
 		FB3488E02B91F2A500C604E5 /* UIImage+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488DF2B91F2A500C604E5 /* UIImage+Extenstion.swift */; };
+		FB6F550C2B95F5710006D215 /* Github+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6F550A2B95F5710006D215 /* Github+CoreDataClass.swift */; };
+		FB6F550D2B95F5710006D215 /* Github+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6F550B2B95F5710006D215 /* Github+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		FB3488DB2B91E96000C604E5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		FB3488DC2B91E96000C604E5 /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
 		FB3488DF2B91F2A500C604E5 /* UIImage+Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extenstion.swift"; sourceTree = "<group>"; };
+		FB6F550A2B95F5710006D215 /* Github+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Github+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FB6F550B2B95F5710006D215 /* Github+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Github+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,8 @@
 		FB3488CA2B91BFDC00C604E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FB6F550A2B95F5710006D215 /* Github+CoreDataClass.swift */,
+				FB6F550B2B95F5710006D215 /* Github+CoreDataProperties.swift */,
 				FB3488D72B91DD3C00C604E5 /* GithubModel.swift */,
 			);
 			path = Model;
@@ -347,9 +353,11 @@
 				FB3488D52B91D9B500C604E5 /* SignInWithTokenViewController.swift in Sources */,
 				FB3488A32B91BE7E00C604E5 /* AppDelegate.swift in Sources */,
 				FB0F30FB2B95B6FB00252087 /* TutorialViewController.swift in Sources */,
+				FB6F550D2B95F5710006D215 /* Github+CoreDataProperties.swift in Sources */,
 				FB3488D82B91DD3C00C604E5 /* GithubModel.swift in Sources */,
 				FB3488D22B91C73E00C604E5 /* UIColorHex.swift in Sources */,
 				FB3488A52B91BE7E00C604E5 /* SceneDelegate.swift in Sources */,
+				FB6F550C2B95F5710006D215 /* Github+CoreDataClass.swift in Sources */,
 				FB0F30FF2B95B91200252087 /* UserDefaultsConstants.swift in Sources */,
 				FB3488E02B91F2A500C604E5 /* UIImage+Extenstion.swift in Sources */,
 				FB3488C52B91BF5F00C604E5 /* AlerUser.swift in Sources */,

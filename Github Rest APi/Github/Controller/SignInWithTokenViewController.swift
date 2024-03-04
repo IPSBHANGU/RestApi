@@ -85,6 +85,7 @@ class SignInWithTokenViewController: UIViewController {
                 DispatchQueue.main.async {
                     let userProfileView = UserProfileViewController()
                     userProfileView.userData = data
+                    userProfileView.userToken = self.tokenTextField.text ?? ""
                     self.navigationController?.pushViewController(userProfileView, animated: true)
                 }
             } else  {

@@ -11,12 +11,16 @@ class ViewController: UIViewController {
     
     let logoImageView = UIImageView()
     let signInWithPassword = UIButton(type: .system)
+    let model = GithubModel()
+    var emptyGithubObj:[Github] = []
+    var userData:[GitHubUser]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         showTutorialView()
         setupUI()
+        addUser(imageCount: model.getUsersCount())
     }
     
     func showTutorialView() {
@@ -52,6 +56,60 @@ class ViewController: UIViewController {
         view.addSubview(logoImageView)
         view.addSubview(signInWithPassword)
     }
+    
+    // this function will add multiple ui Images based on count from Model when fetch user is done
+    func addUser(imageCount: Int) {
+        let userImageSize = CGSize(width: 120, height: 120)
+        let startY = signInWithPassword.frame.maxY + 50
+        let padding: CGFloat = 20
+        
+        for index in 0..<imageCount {
+            let userImageView: UIImageView
+            if let existingView = view.viewWithTag(index) as? UIImageView {
+                userImageView = existingView
+            } else {
+                userImageView = UIImageView()
+                userImageView.contentMode = .scaleAspectFill
+                userImageView.tag = index
+                let userImageOrigin = CGPoint(x: (view.frame.width - userImageSize.width) / 2, y: startY + CGFloat(index) * (userImageSize.height + padding))
+                userImageView.frame = CGRect(origin: userImageOrigin, size: userImageSize)
+                userImageView.layer.cornerRadius = 60
+                userImageView.clipsToBounds = true
+                view.addSubview(userImageView)
+            }
+            
+            // Fetch user Objects
+            emptyGithubObj = model.fetchDataObject()
+            
+            if let usersData = emptyGithubObj[index].users,
+               let decodeData = try? JSONDecoder().decode(GitHubUser.self, from: usersData) {
+                userData = [decodeData]
+                userImageView.downloaded(from: decodeData.avatar_url ?? "") { image in
+                    DispatchQueue.main.async {
+                        userImageView.image = image
+                    }
+                }
+            }
+            
+            // Add tap gesture recognizer
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+            userImageView.isUserInteractionEnabled = true
+            userImageView.addGestureRecognizer(tapGesture)
+        }
+    }
+
+    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+        guard let imageView = sender.view as? UIImageView else { return }
+        
+        let tappedImageIndex = imageView.tag
+        
+        if let userData = userData {
+            let userProfileView = UserProfileViewController()
+            userProfileView.userData = userData[tappedImageIndex]
+            self.navigationController?.pushViewController(userProfileView, animated: true)
+        }
+    }
+
     
     @objc func signInWithPasswordButton() {
         let signInWithTokenView = SignInWithTokenViewController()
