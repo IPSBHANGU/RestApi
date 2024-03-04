@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInWithPasswordViewController: UIViewController {
+class SignInWithTokenViewController: UIViewController {
 
     let logoImageView = UIImageView()
     let tokenTextField = UITextField()
@@ -78,7 +78,7 @@ class SignInWithPasswordViewController: UIViewController {
     }
 }
 
-extension SignInWithPasswordViewController:UITextFieldDelegate {
+extension SignInWithTokenViewController:UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }

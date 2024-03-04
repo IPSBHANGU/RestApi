@@ -54,8 +54,8 @@ class ViewController: UIViewController {
     }
     
     @objc func signInWithPasswordButton() {
-        let signInWithPasswordView = SignInWithPasswordViewController()
-        navigationController?.pushViewController(signInWithPasswordView, animated: true)
+        let signInWithTokenView = SignInWithTokenViewController()
+        navigationController?.pushViewController(signInWithTokenView, animated: true)
     }
 }
 

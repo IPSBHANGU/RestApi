@@ -21,8 +21,8 @@
 		FB3488C22B91BF3B00C604E5 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488C12B91BF3B00C604E5 /* Debug.swift */; };
 		FB3488C52B91BF5F00C604E5 /* AlerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488C42B91BF5F00C604E5 /* AlerUser.swift */; };
 		FB3488D22B91C73E00C604E5 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D12B91C73E00C604E5 /* UIColorHex.swift */; };
-		FB3488D52B91D9B500C604E5 /* SignInWithPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D32B91D9B500C604E5 /* SignInWithPasswordViewController.swift */; };
-		FB3488D62B91D9B500C604E5 /* SignInWithPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3488D42B91D9B500C604E5 /* SignInWithPasswordViewController.xib */; };
+		FB3488D52B91D9B500C604E5 /* SignInWithTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D32B91D9B500C604E5 /* SignInWithTokenViewController.swift */; };
+		FB3488D62B91D9B500C604E5 /* SignInWithTokenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3488D42B91D9B500C604E5 /* SignInWithTokenViewController.xib */; };
 		FB3488D82B91DD3C00C604E5 /* GithubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D72B91DD3C00C604E5 /* GithubModel.swift */; };
 		FB3488DA2B91DE2200C604E5 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D92B91DE2200C604E5 /* APIConstant.swift */; };
 		FB3488DD2B91E96000C604E5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488DB2B91E96000C604E5 /* UserProfileViewController.swift */; };
@@ -47,8 +47,8 @@
 		FB3488C12B91BF3B00C604E5 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		FB3488C42B91BF5F00C604E5 /* AlerUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlerUser.swift; sourceTree = "<group>"; };
 		FB3488D12B91C73E00C604E5 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
-		FB3488D32B91D9B500C604E5 /* SignInWithPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithPasswordViewController.swift; sourceTree = "<group>"; };
-		FB3488D42B91D9B500C604E5 /* SignInWithPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInWithPasswordViewController.xib; sourceTree = "<group>"; };
+		FB3488D32B91D9B500C604E5 /* SignInWithTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithTokenViewController.swift; sourceTree = "<group>"; };
+		FB3488D42B91D9B500C604E5 /* SignInWithTokenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInWithTokenViewController.xib; sourceTree = "<group>"; };
 		FB3488D72B91DD3C00C604E5 /* GithubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubModel.swift; sourceTree = "<group>"; };
 		FB3488D92B91DE2200C604E5 /* APIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		FB3488DB2B91E96000C604E5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		FB3488C82B91BFC300C604E5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FB3488D32B91D9B500C604E5 /* SignInWithPasswordViewController.swift */,
+				FB3488D32B91D9B500C604E5 /* SignInWithTokenViewController.swift */,
 				FB3488DB2B91E96000C604E5 /* UserProfileViewController.swift */,
 			);
 			path = Controller;
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				FB3488DC2B91E96000C604E5 /* UserProfileViewController.xib */,
-				FB3488D42B91D9B500C604E5 /* SignInWithPasswordViewController.xib */,
+				FB3488D42B91D9B500C604E5 /* SignInWithTokenViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,7 +327,7 @@
 				FB3488B22B91BE7F00C604E5 /* LaunchScreen.storyboard in Resources */,
 				FB3488AF2B91BE7F00C604E5 /* Assets.xcassets in Resources */,
 				FB3488AA2B91BE7E00C604E5 /* Main.storyboard in Resources */,
-				FB3488D62B91D9B500C604E5 /* SignInWithPasswordViewController.xib in Resources */,
+				FB3488D62B91D9B500C604E5 /* SignInWithTokenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +344,7 @@
 				FB3488A72B91BE7E00C604E5 /* ViewController.swift in Sources */,
 				FB3488AD2B91BE7E00C604E5 /* Github_Rest_APi.xcdatamodeld in Sources */,
 				FB3488DA2B91DE2200C604E5 /* APIConstant.swift in Sources */,
-				FB3488D52B91D9B500C604E5 /* SignInWithPasswordViewController.swift in Sources */,
+				FB3488D52B91D9B500C604E5 /* SignInWithTokenViewController.swift in Sources */,
 				FB3488A32B91BE7E00C604E5 /* AppDelegate.swift in Sources */,
 				FB0F30FB2B95B6FB00252087 /* TutorialViewController.swift in Sources */,
 				FB3488D82B91DD3C00C604E5 /* GithubModel.swift in Sources */,
