@@ -8,7 +8,7 @@
 import Foundation
 
 class Debug:NSObject {
-    let is_DEBUG = true
+    let is_DEBUG = false
     
     static let shared = Debug()
     

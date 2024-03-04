@@ -15,8 +15,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        showTutorialView()
         setupUI()
     }
+    
+    func showTutorialView() {
+        if !UserDefaults.standard.bool(forKey: "isTutorial") {
+            let tutorialView = TutorialViewController()
+            if let navigationController = navigationController {
+                navigationController.pushViewController(tutorialView, animated: true)
+            }
+        }
+    }
+
     
     func setupUI() {
         // logoImageView

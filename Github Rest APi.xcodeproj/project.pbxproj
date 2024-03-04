@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0F30FB2B95B6FB00252087 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F30F92B95B6FB00252087 /* TutorialViewController.swift */; };
+		FB0F30FC2B95B6FB00252087 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0F30FA2B95B6FB00252087 /* TutorialViewController.xib */; };
+		FB0F30FF2B95B91200252087 /* UserDefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F30FE2B95B91200252087 /* UserDefaultsConstants.swift */; };
 		FB3488A32B91BE7E00C604E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488A22B91BE7E00C604E5 /* AppDelegate.swift */; };
 		FB3488A52B91BE7E00C604E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488A42B91BE7E00C604E5 /* SceneDelegate.swift */; };
 		FB3488A72B91BE7E00C604E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488A62B91BE7E00C604E5 /* ViewController.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB0F30F92B95B6FB00252087 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		FB0F30FA2B95B6FB00252087 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
+		FB0F30FE2B95B91200252087 /* UserDefaultsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstants.swift; sourceTree = "<group>"; };
 		FB34889F2B91BE7E00C604E5 /* Github Rest APi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Rest APi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB3488A22B91BE7E00C604E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB3488A42B91BE7E00C604E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +67,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB0F30F62B95B6D300252087 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				FB0F30F82B95B6E900252087 /* View */,
+				FB0F30F72B95B6E300252087 /* Controller */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		FB0F30F72B95B6E300252087 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FB0F30F92B95B6FB00252087 /* TutorialViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FB0F30F82B95B6E900252087 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB0F30FA2B95B6FB00252087 /* TutorialViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB0F30FD2B95B8F300252087 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				FB0F30FE2B95B91200252087 /* UserDefaultsConstants.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		FB3488962B91BE7E00C604E5 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +123,7 @@
 				FB3488CE2B91C00400C604E5 /* AppDelegates */,
 				FB3488CB2B91BFE500C604E5 /* Home */,
 				FB3488C62B91BFA600C604E5 /* Github */,
+				FB0F30F62B95B6D300252087 /* Tutorial */,
 				FB3488BA2B91BEE600C604E5 /* Utils */,
 				FB3488B92B91BE9B00C604E5 /* Resources */,
 			);
@@ -104,6 +144,7 @@
 		FB3488BA2B91BEE600C604E5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FB0F30FD2B95B8F300252087 /* UserDefaults */,
 				FB3488D02B91C71C00C604E5 /* UIColorHex */,
 				FB3488C32B91BF4600C604E5 /* Debug */,
 				FB3488BB2B91BEED00C604E5 /* Network */,
@@ -281,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB0F30FC2B95B6FB00252087 /* TutorialViewController.xib in Resources */,
 				FB3488DE2B91E96000C604E5 /* UserProfileViewController.xib in Resources */,
 				FB3488B22B91BE7F00C604E5 /* LaunchScreen.storyboard in Resources */,
 				FB3488AF2B91BE7F00C604E5 /* Assets.xcassets in Resources */,
@@ -304,9 +346,11 @@
 				FB3488DA2B91DE2200C604E5 /* APIConstant.swift in Sources */,
 				FB3488D52B91D9B500C604E5 /* SignInWithPasswordViewController.swift in Sources */,
 				FB3488A32B91BE7E00C604E5 /* AppDelegate.swift in Sources */,
+				FB0F30FB2B95B6FB00252087 /* TutorialViewController.swift in Sources */,
 				FB3488D82B91DD3C00C604E5 /* GithubModel.swift in Sources */,
 				FB3488D22B91C73E00C604E5 /* UIColorHex.swift in Sources */,
 				FB3488A52B91BE7E00C604E5 /* SceneDelegate.swift in Sources */,
+				FB0F30FF2B95B91200252087 /* UserDefaultsConstants.swift in Sources */,
 				FB3488E02B91F2A500C604E5 /* UIImage+Extenstion.swift in Sources */,
 				FB3488C52B91BF5F00C604E5 /* AlerUser.swift in Sources */,
 			);
