@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6B35CE31C6A1DFF1987F7AF /* Pods_Github_Rest_APi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC7C2816D6292B30C3EF728 /* Pods_Github_Rest_APi.framework */; };
 		FB0F30FB2B95B6FB00252087 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F30F92B95B6FB00252087 /* TutorialViewController.swift */; };
 		FB0F30FC2B95B6FB00252087 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0F30FA2B95B6FB00252087 /* TutorialViewController.xib */; };
 		FB0F30FF2B95B91200252087 /* UserDefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F30FE2B95B91200252087 /* UserDefaultsConstants.swift */; };
@@ -20,7 +21,6 @@
 		FB3488BE2B91BF1A00C604E5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488BD2B91BF1A00C604E5 /* Network.swift */; };
 		FB3488C22B91BF3B00C604E5 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488C12B91BF3B00C604E5 /* Debug.swift */; };
 		FB3488C52B91BF5F00C604E5 /* AlerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488C42B91BF5F00C604E5 /* AlerUser.swift */; };
-		FB3488D22B91C73E00C604E5 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D12B91C73E00C604E5 /* UIColorHex.swift */; };
 		FB3488D52B91D9B500C604E5 /* SignInWithTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D32B91D9B500C604E5 /* SignInWithTokenViewController.swift */; };
 		FB3488D62B91D9B500C604E5 /* SignInWithTokenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3488D42B91D9B500C604E5 /* SignInWithTokenViewController.xib */; };
 		FB3488D82B91DD3C00C604E5 /* GithubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D72B91DD3C00C604E5 /* GithubModel.swift */; };
@@ -33,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FC7C2816D6292B30C3EF728 /* Pods_Github_Rest_APi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Github_Rest_APi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31DB17CD26278EC726B73CB5 /* Pods-Github Rest APi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Rest APi.debug.xcconfig"; path = "Target Support Files/Pods-Github Rest APi/Pods-Github Rest APi.debug.xcconfig"; sourceTree = "<group>"; };
+		F00351BFDE5A908093B78DB8 /* Pods-Github Rest APi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Rest APi.release.xcconfig"; path = "Target Support Files/Pods-Github Rest APi/Pods-Github Rest APi.release.xcconfig"; sourceTree = "<group>"; };
 		FB0F30F92B95B6FB00252087 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		FB0F30FA2B95B6FB00252087 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 		FB0F30FE2B95B91200252087 /* UserDefaultsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstants.swift; sourceTree = "<group>"; };
@@ -48,7 +51,6 @@
 		FB3488BD2B91BF1A00C604E5 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		FB3488C12B91BF3B00C604E5 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		FB3488C42B91BF5F00C604E5 /* AlerUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlerUser.swift; sourceTree = "<group>"; };
-		FB3488D12B91C73E00C604E5 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
 		FB3488D32B91D9B500C604E5 /* SignInWithTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithTokenViewController.swift; sourceTree = "<group>"; };
 		FB3488D42B91D9B500C604E5 /* SignInWithTokenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInWithTokenViewController.xib; sourceTree = "<group>"; };
 		FB3488D72B91DD3C00C604E5 /* GithubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubModel.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		FB3488DB2B91E96000C604E5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		FB3488DC2B91E96000C604E5 /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
 		FB3488DF2B91F2A500C604E5 /* UIImage+Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extenstion.swift"; sourceTree = "<group>"; };
+		FB59379A2B97083900079D95 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6F550A2B95F5710006D215 /* Github+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Github+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FB6F550B2B95F5710006D215 /* Github+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Github+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,12 +68,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B35CE31C6A1DFF1987F7AF /* Pods_Github_Rest_APi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81822EF967CFBBF6473E18BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB59379A2B97083900079D95 /* Kingfisher.framework */,
+				0FC7C2816D6292B30C3EF728 /* Pods_Github_Rest_APi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B12681876A534ABEAE5FFFA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31DB17CD26278EC726B73CB5 /* Pods-Github Rest APi.debug.xcconfig */,
+				F00351BFDE5A908093B78DB8 /* Pods-Github Rest APi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FB0F30F62B95B6D300252087 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +131,8 @@
 			children = (
 				FB3488A12B91BE7E00C604E5 /* Github Rest APi */,
 				FB3488A02B91BE7E00C604E5 /* Products */,
+				B12681876A534ABEAE5FFFA7 /* Pods */,
+				81822EF967CFBBF6473E18BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				FB0F30FD2B95B8F300252087 /* UserDefaults */,
-				FB3488D02B91C71C00C604E5 /* UIColorHex */,
 				FB3488C32B91BF4600C604E5 /* Debug */,
 				FB3488BB2B91BEED00C604E5 /* Network */,
 				FB3488BC2B91BEF300C604E5 /* Alert User */,
@@ -262,14 +285,6 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		FB3488D02B91C71C00C604E5 /* UIColorHex */ = {
-			isa = PBXGroup;
-			children = (
-				FB3488D12B91C73E00C604E5 /* UIColorHex.swift */,
-			);
-			path = UIColorHex;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,9 +292,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB3488B62B91BE7F00C604E5 /* Build configuration list for PBXNativeTarget "Github Rest APi" */;
 			buildPhases = (
+				026210029BBDD6CC0DEA7982 /* [CP] Check Pods Manifest.lock */,
 				FB34889B2B91BE7E00C604E5 /* Sources */,
 				FB34889C2B91BE7E00C604E5 /* Frameworks */,
 				FB34889D2B91BE7E00C604E5 /* Resources */,
+				3607F562D486FFEAC69F1BE9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -339,6 +356,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		026210029BBDD6CC0DEA7982 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Github Rest APi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3607F562D486FFEAC69F1BE9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Github Rest APi/Pods-Github Rest APi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Github Rest APi/Pods-Github Rest APi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Github Rest APi/Pods-Github Rest APi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FB34889B2B91BE7E00C604E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -355,7 +414,6 @@
 				FB0F30FB2B95B6FB00252087 /* TutorialViewController.swift in Sources */,
 				FB6F550D2B95F5710006D215 /* Github+CoreDataProperties.swift in Sources */,
 				FB3488D82B91DD3C00C604E5 /* GithubModel.swift in Sources */,
-				FB3488D22B91C73E00C604E5 /* UIColorHex.swift in Sources */,
 				FB3488A52B91BE7E00C604E5 /* SceneDelegate.swift in Sources */,
 				FB6F550C2B95F5710006D215 /* Github+CoreDataClass.swift in Sources */,
 				FB0F30FF2B95B91200252087 /* UserDefaultsConstants.swift in Sources */,
@@ -507,11 +565,13 @@
 		};
 		FB3488B72B91BE7F00C604E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31DB17CD26278EC726B73CB5 /* Pods-Github Rest APi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Github Rest APi/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -534,11 +594,13 @@
 		};
 		FB3488B82B91BE7F00C604E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F00351BFDE5A908093B78DB8 /* Pods-Github Rest APi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Github Rest APi/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewController: UIViewController {
     
     let logoImageView = UIImageView()
     let signInWithPassword = UIButton(type: .system)
     let model = GithubModel()
-    var emptyGithubObj:[Github] = []
-    var userData:[GitHubUser]?
+    var emptyGithubObj: [Github] = [] // coreData entity
+    var userData: [GitHubUser] = [] // Struct array
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,6 @@ class ViewController: UIViewController {
         }
     }
 
-    
     func setupUI() {
         // logoImageView
         logoImageView.image = UIImage(named: "github")
@@ -62,40 +62,55 @@ class ViewController: UIViewController {
         let userImageSize = CGSize(width: 120, height: 120)
         let startY = signInWithPassword.frame.maxY + 50
         let padding: CGFloat = 20
+
+        // Create a UIScrollView instance
+        let scrollView = UIScrollView()
+        scrollView.frame = CGRect(x: 0, y: startY, width: view.frame.width, height: view.frame.height - startY)
+        scrollView.showsVerticalScrollIndicator = false
         
+        // Create a subView in Scroll View
+        let subView = UIView()
+        subView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: CGFloat(imageCount) * (userImageSize.height + padding))
+
         for index in 0..<imageCount {
-            let userImageView: UIImageView
-            if let existingView = view.viewWithTag(index) as? UIImageView {
-                userImageView = existingView
-            } else {
-                userImageView = UIImageView()
-                userImageView.contentMode = .scaleAspectFill
-                userImageView.tag = index
-                let userImageOrigin = CGPoint(x: (view.frame.width - userImageSize.width) / 2, y: startY + CGFloat(index) * (userImageSize.height + padding))
-                userImageView.frame = CGRect(origin: userImageOrigin, size: userImageSize)
-                userImageView.layer.cornerRadius = 60
-                userImageView.clipsToBounds = true
-                view.addSubview(userImageView)
-            }
-            
+            let userImageView = UIImageView()
+            userImageView.contentMode = .scaleAspectFill
+            let userImageOrigin = CGPoint(x: (view.frame.width - userImageSize.width) / 2, y: CGFloat(index) * (userImageSize.height + padding))
+            userImageView.frame = CGRect(origin: userImageOrigin, size: userImageSize)
+            userImageView.layer.cornerRadius = 60
+            userImageView.tag = index
+            userImageView.clipsToBounds = true
+
             // Fetch user Objects
             emptyGithubObj = model.fetchDataObject()
-            
-            if let usersData = emptyGithubObj[index].users,
-               let decodeData = try? JSONDecoder().decode(GitHubUser.self, from: usersData) {
-                userData = [decodeData]
-                userImageView.downloaded(from: decodeData.avatar_url ?? "") { image in
-                    DispatchQueue.main.async {
-                        userImageView.image = image
-                    }
+            guard let indexUserData = emptyGithubObj[index].users else { return }
+
+            if let decodeData = try? JSONDecoder().decode(GitHubUser.self, from: indexUserData) {
+                userData.append(decodeData)
+                if let url = URL(string: decodeData.avatar_url ?? "") {
+                    userImageView.kf.setImage(with: url)
                 }
             }
-            
+
             // Add tap gesture recognizer
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
             userImageView.isUserInteractionEnabled = true
             userImageView.addGestureRecognizer(tapGesture)
+
+            subView.addSubview(userImageView)
         }
+
+        // Add subView to scrollView
+        scrollView.addSubview(subView)
+
+        // Set content size of scrollView
+        scrollView.contentSize = subView.frame.size
+        
+        // Adjust content inset to add space at the bottom
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+
+        // Add the UIScrollView to your view hierarchy
+        view.addSubview(scrollView)
     }
 
     @objc func imageTapped(_ sender: UITapGestureRecognizer) {
@@ -103,11 +118,10 @@ class ViewController: UIViewController {
         
         let tappedImageIndex = imageView.tag
         
-        if let userData = userData {
-            let userProfileView = UserProfileViewController()
-            userProfileView.userData = userData[tappedImageIndex]
-            self.navigationController?.pushViewController(userProfileView, animated: true)
-        }
+        let userProfileView = UserProfileViewController()
+        userProfileView.userData = userData[tappedImageIndex]
+        userProfileView.isLocal = true
+        self.navigationController?.pushViewController(userProfileView, animated: true)
     }
 
     
@@ -116,4 +130,3 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(signInWithTokenView, animated: true)
     }
 }
-

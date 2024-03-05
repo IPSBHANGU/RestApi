@@ -15,7 +15,7 @@ enum httpRequest:String{
 }
 
 class Network:NSObject {
-    static func connectWithServer(url: String, httpRequest: httpRequest, queryParameters: [String: String]? = nil, token:String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: Data?, _ error: String?, _ statusCode:Int?) -> ()) {
+    func connectWithServer(url: String, httpRequest: httpRequest, queryParameters: [String: String]? = nil, token:String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: Data?, _ error: String?, _ statusCode:Int?) -> ()) {
         guard var urlComponents = URLComponents(string: url) else {
             let emptyApiData = Data()
             completionHandler(false, emptyApiData, "Invalid URL", nil)

@@ -26,7 +26,7 @@ class GithubModel:NSObject {
     // API
     func logIN(token: String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: GitHubUser?, _ error: String?) -> ()) {
         
-        Network.connectWithServer(url: APIConstant.API.SignInWithPassword.apiUrl(), httpRequest: .GET, token: token) { isSucceeded, data, error, statusCode  in
+        Network().connectWithServer(url: APIConstant.API.SignInWithPassword.apiUrl(), httpRequest: .GET, token: token) { isSucceeded, data, error, statusCode  in
             if isSucceeded {
                 if statusCode == 200 {
                     do {

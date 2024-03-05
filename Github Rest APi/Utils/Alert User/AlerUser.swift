@@ -16,7 +16,7 @@ class AlerUser:NSObject {
      view as UIViewController
      Optional arguement to pass custom UIAlertAction usefull if need to add any function at alert action
      */
-    static func alertUser(viewController: UIViewController, title: String, message: String, action: UIAlertAction? = nil) {
+    func alertUser(viewController: UIViewController, title: String, message: String, action: UIAlertAction? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         if let action = action {

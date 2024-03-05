@@ -24,6 +24,9 @@ class UserProfileViewController: UIViewController {
     var userData: GitHubUser?
     var userToken: String = "" // we need to save this will be used for other api's
     
+    // variable for hiding save button
+    var isLocal:Bool = false
+    
     // call Model
     let model = GithubModel()
     
@@ -34,8 +37,8 @@ class UserProfileViewController: UIViewController {
     }
     
     func updateUserProfile() {
-        profileImageView.downloaded(from: userData?.avatar_url ?? "") { image in
-            self.profileImageView.image = image
+        if let url = URL(string: userData?.avatar_url ?? "") {
+            profileImageView.kf.setImage(with: url)
         }
         userLabel.text = userData?.name
         userName.text = userData?.login
@@ -143,7 +146,10 @@ class UserProfileViewController: UIViewController {
         view.addSubview(following)
         view.addSubview(location)
         view.addSubview(reposCount)
-        view.addSubview(saveUser)
+        
+        if !isLocal == true {
+            view.addSubview(saveUser)
+        }
     }
     
     func heightForView(text: String, font: UIFont, width: CGFloat) -> CGFloat {
