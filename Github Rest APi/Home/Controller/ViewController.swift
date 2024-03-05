@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     let logoImageView = UIImageView()
     let signInWithToken = UIButton(type: .system)
+    let signInAsExistingUser = UIButton(type: .system)
     let userTableView = UITableView()
     let model = GithubModel()
     var emptyGithubObj: [Github] = [] // coreData entity
@@ -22,8 +23,6 @@ class ViewController: UIViewController {
         
         showTutorialView()
         setupUI()
-        setupTableView()
-        addUser(count: model.getUsersCount())
     }
     
     func showTutorialView() {
@@ -54,18 +53,59 @@ class ViewController: UIViewController {
         signInWithToken.layer.borderColor = UIColorHex().hexStringToUIColor(hex: "#24292e").cgColor
         signInWithToken.layer.borderWidth = 2.0
         
+        // Existing User Login
+        signInAsExistingUser.setTitle("Login with token", for: .normal)
+        signInAsExistingUser.addTarget(self, action: #selector(signInAsExistingUserAction), for: .touchUpInside)
+        let signInAsExistingUserFrame = CGRect(x: 40, y: signInWithToken.frame.maxY + 50 + 30, width: view.frame.width - 80, height: 40)
+        signInAsExistingUser.frame = signInAsExistingUserFrame
+        signInAsExistingUser.tintColor = .white
+        signInAsExistingUser.backgroundColor = UIColorHex().hexStringToUIColor(hex: "#2b3137")
+        signInAsExistingUser.layer.cornerRadius = 9.0
+        signInAsExistingUser.layer.borderColor = UIColorHex().hexStringToUIColor(hex: "#24292e").cgColor
+        signInAsExistingUser.layer.borderWidth = 2.0
+        
         // Add to the view
         view.addSubview(logoImageView)
         view.addSubview(signInWithToken)
+        if model.getUsersCount() != 0 {
+            view.addSubview(signInAsExistingUser)
+        }
     }
     
     func setupTableView(){
-        userTableView.frame = CGRect(x: 0, y: signInWithToken.frame.maxY + 50, width: view.frame.width, height: view.frame.height - 50)
+        userTableView.frame = CGRect(x: 0, y: logoImageView.frame.maxY + 50, width: view.frame.width, height: view.frame.height - 50)
         userTableView.delegate = self
         userTableView.dataSource = self
         userTableView.register(UINib(nibName: "SavedUsersCell", bundle: .main), forCellReuseIdentifier: "savedUsers")
         userTableView.separatorStyle = .none
+        
+        // Default Hidden TableView
+        userTableView.alpha = 0
+        userTableView.isHidden = true
+        
+        // Add Header Button to hide TableView and bring SignIn Buttons
+        let headerButton = UIButton(type: .system)
+        headerButton.setTitle("Login with token", for: .normal)
+        headerButton.addTarget(self, action: #selector(signInWithTokenButton), for: .touchUpInside)
+        headerButton.frame = CGRect(x: 40, y: 0, width: userTableView.frame.width - 80, height: 44)
+        headerButton.center.y = 22
+        headerButton.tintColor = .white
+        headerButton.backgroundColor = UIColorHex().hexStringToUIColor(hex: "#2b3137")
+        headerButton.layer.cornerRadius = 9.0
+        headerButton.layer.borderColor = UIColorHex().hexStringToUIColor(hex: "#24292e").cgColor
+        headerButton.layer.borderWidth = 2.0
+        
+        // Add a Header View to get flexiblity to mod button
+        let headerView = UIView()
+        headerView.frame = CGRect(x: 40, y: 0, width: userTableView.frame.width, height: 50)
+        headerView.addSubview(headerButton)
+        
+        userTableView.tableHeaderView = headerView
+        
+        // Add TableView to View
         view.addSubview(userTableView)
+        
+        addUser(count: model.getUsersCount())
     }
     
     // this function will add multiple ui Images based on count from Model when fetch user is done
@@ -84,6 +124,18 @@ class ViewController: UIViewController {
     @objc func signInWithTokenButton() {
         let signInWithTokenView = SignInWithTokenViewController()
         navigationController?.pushViewController(signInWithTokenView, animated: true)
+    }
+    
+    @objc func signInAsExistingUserAction(){
+        UIView.animate(withDuration: 0.5) {
+            self.setupTableView()
+            self.userTableView.alpha = 1
+            self.userTableView.isHidden = false
+            
+            // Hide SignIn buttons
+            self.signInWithToken.alpha = 0
+            self.signInAsExistingUser.alpha = 0
+        }
     }
 }
 
