@@ -21,13 +21,13 @@
 		FB3488BE2B91BF1A00C604E5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488BD2B91BF1A00C604E5 /* Network.swift */; };
 		FB3488C22B91BF3B00C604E5 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488C12B91BF3B00C604E5 /* Debug.swift */; };
 		FB3488C52B91BF5F00C604E5 /* AlerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488C42B91BF5F00C604E5 /* AlerUser.swift */; };
+		FB3488D22B91C73E00C604E5 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D12B91C73E00C604E5 /* UIColorHex.swift */; };
 		FB3488D52B91D9B500C604E5 /* SignInWithTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D32B91D9B500C604E5 /* SignInWithTokenViewController.swift */; };
 		FB3488D62B91D9B500C604E5 /* SignInWithTokenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3488D42B91D9B500C604E5 /* SignInWithTokenViewController.xib */; };
 		FB3488D82B91DD3C00C604E5 /* GithubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D72B91DD3C00C604E5 /* GithubModel.swift */; };
 		FB3488DA2B91DE2200C604E5 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488D92B91DE2200C604E5 /* APIConstant.swift */; };
 		FB3488DD2B91E96000C604E5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488DB2B91E96000C604E5 /* UserProfileViewController.swift */; };
 		FB3488DE2B91E96000C604E5 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3488DC2B91E96000C604E5 /* UserProfileViewController.xib */; };
-		FB3488E02B91F2A500C604E5 /* UIImage+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3488DF2B91F2A500C604E5 /* UIImage+Extenstion.swift */; };
 		FB6F550C2B95F5710006D215 /* Github+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6F550A2B95F5710006D215 /* Github+CoreDataClass.swift */; };
 		FB6F550D2B95F5710006D215 /* Github+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6F550B2B95F5710006D215 /* Github+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
@@ -51,13 +51,13 @@
 		FB3488BD2B91BF1A00C604E5 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		FB3488C12B91BF3B00C604E5 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		FB3488C42B91BF5F00C604E5 /* AlerUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlerUser.swift; sourceTree = "<group>"; };
+		FB3488D12B91C73E00C604E5 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
 		FB3488D32B91D9B500C604E5 /* SignInWithTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithTokenViewController.swift; sourceTree = "<group>"; };
 		FB3488D42B91D9B500C604E5 /* SignInWithTokenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInWithTokenViewController.xib; sourceTree = "<group>"; };
 		FB3488D72B91DD3C00C604E5 /* GithubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubModel.swift; sourceTree = "<group>"; };
 		FB3488D92B91DE2200C604E5 /* APIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		FB3488DB2B91E96000C604E5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		FB3488DC2B91E96000C604E5 /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
-		FB3488DF2B91F2A500C604E5 /* UIImage+Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extenstion.swift"; sourceTree = "<group>"; };
 		FB59379A2B97083900079D95 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6F550A2B95F5710006D215 /* Github+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Github+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FB6F550B2B95F5710006D215 /* Github+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Github+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -164,7 +164,6 @@
 				FB3488AE2B91BE7F00C604E5 /* Assets.xcassets */,
 				FB3488B32B91BE7F00C604E5 /* Info.plist */,
 				FB3488B02B91BE7F00C604E5 /* LaunchScreen.storyboard */,
-				FB3488DF2B91F2A500C604E5 /* UIImage+Extenstion.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -173,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				FB0F30FD2B95B8F300252087 /* UserDefaults */,
+				FB3488D02B91C71C00C604E5 /* UIColorHex */,
 				FB3488C32B91BF4600C604E5 /* Debug */,
 				FB3488BB2B91BEED00C604E5 /* Network */,
 				FB3488BC2B91BEF300C604E5 /* Alert User */,
@@ -283,6 +283,14 @@
 				FB3488AB2B91BE7E00C604E5 /* Github_Rest_APi.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FB3488D02B91C71C00C604E5 /* UIColorHex */ = {
+			isa = PBXGroup;
+			children = (
+				FB3488D12B91C73E00C604E5 /* UIColorHex.swift */,
+			);
+			path = UIColorHex;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,10 +422,10 @@
 				FB0F30FB2B95B6FB00252087 /* TutorialViewController.swift in Sources */,
 				FB6F550D2B95F5710006D215 /* Github+CoreDataProperties.swift in Sources */,
 				FB3488D82B91DD3C00C604E5 /* GithubModel.swift in Sources */,
+				FB3488D22B91C73E00C604E5 /* UIColorHex.swift in Sources */,
 				FB3488A52B91BE7E00C604E5 /* SceneDelegate.swift in Sources */,
 				FB6F550C2B95F5710006D215 /* Github+CoreDataClass.swift in Sources */,
 				FB0F30FF2B95B91200252087 /* UserDefaultsConstants.swift in Sources */,
-				FB3488E02B91F2A500C604E5 /* UIImage+Extenstion.swift in Sources */,
 				FB3488C52B91BF5F00C604E5 /* AlerUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

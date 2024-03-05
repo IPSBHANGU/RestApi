@@ -90,7 +90,7 @@ class SignInWithTokenViewController: UIViewController {
                 }
             } else  {
                 DispatchQueue.main.async {
-                    AlerUser.alertUser(viewController: self, title: "Fail to Login", message: "Failed to login Error: \(error ?? "")")
+                    AlerUser().alertUser(viewController: self, title: "Fail to Login", message: "Failed to login Error: \(error ?? "")")
                 }
 
             }

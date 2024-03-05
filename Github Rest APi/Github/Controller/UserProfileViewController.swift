@@ -169,9 +169,9 @@ class UserProfileViewController: UIViewController {
             }
             switch saveUserDetails {
             case .success(_):
-                AlerUser.alertUser(viewController: self, title: "User Profile Saved", message: "Successfully saved user Profile!", action: okAction)
+                AlerUser().alertUser(viewController: self, title: "User Profile Saved", message: "Successfully saved user Profile!", action: okAction)
             case .failure(let error):
-                AlerUser.alertUser(viewController: self, title: "Failed to Store User Profile", message: "There was error while storing user profile ERROR = \(error.localizedDescription)")
+                AlerUser().alertUser(viewController: self, title: "Failed to Store User Profile", message: "There was error while storing user profile ERROR = \(error.localizedDescription)")
             }
         }
     }

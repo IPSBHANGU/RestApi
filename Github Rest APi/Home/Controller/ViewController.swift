@@ -67,37 +67,41 @@ class ViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.frame = CGRect(x: 0, y: startY, width: view.frame.width, height: view.frame.height - startY)
         scrollView.showsVerticalScrollIndicator = false
-        
+
         // Create a subView in Scroll View
         let subView = UIView()
         subView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: CGFloat(imageCount) * (userImageSize.height + padding))
 
+        // Create a single instance of UIImageView
+        let userImageView = UIImageView()
+        userImageView.contentMode = .scaleAspectFill
+        userImageView.layer.cornerRadius = 60
+        userImageView.clipsToBounds = true
+
         for index in 0..<imageCount {
-            let userImageView = UIImageView()
-            userImageView.contentMode = .scaleAspectFill
-            let userImageOrigin = CGPoint(x: (view.frame.width - userImageSize.width) / 2, y: CGFloat(index) * (userImageSize.height + padding))
-            userImageView.frame = CGRect(origin: userImageOrigin, size: userImageSize)
-            userImageView.layer.cornerRadius = 60
-            userImageView.tag = index
-            userImageView.clipsToBounds = true
+            let userImageViewCopy = userImageView.copyView() // Create a new UIImageView instance
+
+            let userImageOrigin = CGPoint(x: (subView.frame.width - userImageSize.width) / 2, y: CGFloat(index) * (userImageSize.height + padding))
+            userImageViewCopy.frame = CGRect(origin: userImageOrigin, size: userImageSize)
+            userImageViewCopy.tag = index
 
             // Fetch user Objects
             emptyGithubObj = model.fetchDataObject()
-            guard let indexUserData = emptyGithubObj[index].users else { return }
+            guard let indexUserData = emptyGithubObj[index].users else { continue }
 
             if let decodeData = try? JSONDecoder().decode(GitHubUser.self, from: indexUserData) {
                 userData.append(decodeData)
-                if let url = URL(string: decodeData.avatar_url ?? "") {
-                    userImageView.kf.setImage(with: url)
-                }
+                guard let url = URL(string: decodeData.avatar_url ?? "") else {return}
+                userImageViewCopy.kf.setImage(with: url)
             }
 
             // Add tap gesture recognizer
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
-            userImageView.isUserInteractionEnabled = true
-            userImageView.addGestureRecognizer(tapGesture)
+            userImageViewCopy.isUserInteractionEnabled = true
+            userImageViewCopy.addGestureRecognizer(tapGesture)
 
-            subView.addSubview(userImageView)
+            // Add the userImageViewCopy to subView
+            subView.addSubview(userImageViewCopy)
         }
 
         // Add subView to scrollView
@@ -105,11 +109,11 @@ class ViewController: UIViewController {
 
         // Set content size of scrollView
         scrollView.contentSize = subView.frame.size
-        
+
         // Adjust content inset to add space at the bottom
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
 
-        // Add the UIScrollView to your view hierarchy
+        // Add the UIScrollView to view
         view.addSubview(scrollView)
     }
 
@@ -128,5 +132,16 @@ class ViewController: UIViewController {
     @objc func signInWithPasswordButton() {
         let signInWithTokenView = SignInWithTokenViewController()
         navigationController?.pushViewController(signInWithTokenView, animated: true)
+    }
+}
+
+// Function to create a copy of UIImageView
+extension UIImageView {
+    func copyView() -> UIImageView {
+        let copy = UIImageView(frame: self.frame)
+        copy.contentMode = self.contentMode
+        copy.layer.cornerRadius = self.layer.cornerRadius
+        copy.clipsToBounds = self.clipsToBounds
+        return copy
     }
 }
