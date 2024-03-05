@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     let logoImageView = UIImageView()
     let signInWithPassword = UIButton(type: .system)
+    let userTableView = UITableView()
     let model = GithubModel()
     var emptyGithubObj: [Github] = [] // coreData entity
     var userData: [GitHubUser] = [] // Struct array
@@ -21,7 +22,8 @@ class ViewController: UIViewController {
         
         showTutorialView()
         setupUI()
-        addUser(imageCount: model.getUsersCount())
+        setupTableView()
+        addUser(count: model.getUsersCount())
     }
     
     func showTutorialView() {
@@ -57,75 +59,25 @@ class ViewController: UIViewController {
         view.addSubview(signInWithPassword)
     }
     
+    func setupTableView(){
+        userTableView.frame = CGRect(x: 0, y: signInWithPassword.frame.maxY + 50, width: view.frame.width, height: view.frame.height - 50)
+        userTableView.delegate = self
+        userTableView.dataSource = self
+        userTableView.register(UINib(nibName: "SavedUsersCell", bundle: .main), forCellReuseIdentifier: "savedUsers")
+        userTableView.separatorStyle = .none
+        view.addSubview(userTableView)
+    }
+    
     // this function will add multiple ui Images based on count from Model when fetch user is done
-    func addUser(imageCount: Int) {
-        let userImageSize = CGSize(width: 120, height: 120)
-        let startY = signInWithPassword.frame.maxY + 50
-        let padding: CGFloat = 20
-
-        // Create a UIScrollView instance
-        let scrollView = UIScrollView()
-        scrollView.frame = CGRect(x: 0, y: startY, width: view.frame.width, height: view.frame.height - startY)
-        scrollView.showsVerticalScrollIndicator = false
-
-        // Create a subView in Scroll View
-        let subView = UIView()
-        subView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: CGFloat(imageCount) * (userImageSize.height + padding))
-
-        // Create a single instance of UIImageView
-        let userImageView = UIImageView()
-        userImageView.contentMode = .scaleAspectFill
-        userImageView.layer.cornerRadius = 60
-        userImageView.clipsToBounds = true
-
-        for index in 0..<imageCount {
-            let userImageViewCopy = userImageView.copyView() // Create a new UIImageView instance
-
-            let userImageOrigin = CGPoint(x: (subView.frame.width - userImageSize.width) / 2, y: CGFloat(index) * (userImageSize.height + padding))
-            userImageViewCopy.frame = CGRect(origin: userImageOrigin, size: userImageSize)
-            userImageViewCopy.tag = index
-
-            // Fetch user Objects
+    func addUser(count: Int) {
+        for index in 0..<count {
             emptyGithubObj = model.fetchDataObject()
             guard let indexUserData = emptyGithubObj[index].users else { continue }
-
             if let decodeData = try? JSONDecoder().decode(GitHubUser.self, from: indexUserData) {
                 userData.append(decodeData)
-                guard let url = URL(string: decodeData.avatar_url ?? "") else {return}
-                userImageViewCopy.kf.setImage(with: url)
             }
-
-            // Add tap gesture recognizer
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
-            userImageViewCopy.isUserInteractionEnabled = true
-            userImageViewCopy.addGestureRecognizer(tapGesture)
-
-            // Add the userImageViewCopy to subView
-            subView.addSubview(userImageViewCopy)
         }
-
-        // Add subView to scrollView
-        scrollView.addSubview(subView)
-
-        // Set content size of scrollView
-        scrollView.contentSize = subView.frame.size
-
-        // Adjust content inset to add space at the bottom
-        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
-
-        // Add the UIScrollView to view
-        view.addSubview(scrollView)
-    }
-
-    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
-        guard let imageView = sender.view as? UIImageView else { return }
-        
-        let tappedImageIndex = imageView.tag
-        
-        let userProfileView = UserProfileViewController()
-        userProfileView.userData = userData[tappedImageIndex]
-        userProfileView.isLocal = true
-        self.navigationController?.pushViewController(userProfileView, animated: true)
+        userTableView.reloadData()
     }
 
     
@@ -135,13 +87,31 @@ class ViewController: UIViewController {
     }
 }
 
-// Function to create a copy of UIImageView
-extension UIImageView {
-    func copyView() -> UIImageView {
-        let copy = UIImageView(frame: self.frame)
-        copy.contentMode = self.contentMode
-        copy.layer.cornerRadius = self.layer.cornerRadius
-        copy.clipsToBounds = self.clipsToBounds
-        return copy
+extension ViewController:UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "savedUsers", for: indexPath) as? SavedUsersCell else {
+            return UITableViewCell()
+        }
+        
+        let user = userData[indexPath.row]
+        
+        cell.setCellData(url: user.avatar_url ?? "", username: user.login)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userProfileView = UserProfileViewController()
+        userProfileView.userData = userData[indexPath.row]
+        userProfileView.isLocal = true
+        navigationController?.pushViewController(userProfileView, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }

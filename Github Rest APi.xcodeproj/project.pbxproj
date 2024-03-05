@@ -30,6 +30,8 @@
 		FB3488DE2B91E96000C604E5 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3488DC2B91E96000C604E5 /* UserProfileViewController.xib */; };
 		FB6F550C2B95F5710006D215 /* Github+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6F550A2B95F5710006D215 /* Github+CoreDataClass.swift */; };
 		FB6F550D2B95F5710006D215 /* Github+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6F550B2B95F5710006D215 /* Github+CoreDataProperties.swift */; };
+		FBF44D632B97917E006FEF11 /* SavedUsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF44D612B97917E006FEF11 /* SavedUsersCell.swift */; };
+		FBF44D642B97917E006FEF11 /* SavedUsersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF44D622B97917E006FEF11 /* SavedUsersCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		FB59379A2B97083900079D95 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6F550A2B95F5710006D215 /* Github+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Github+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FB6F550B2B95F5710006D215 /* Github+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Github+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FBF44D612B97917E006FEF11 /* SavedUsersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersCell.swift; sourceTree = "<group>"; };
+		FBF44D622B97917E006FEF11 /* SavedUsersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedUsersCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				FB3488A82B91BE7E00C604E5 /* Main.storyboard */,
+				FBF44D612B97917E006FEF11 /* SavedUsersCell.swift */,
+				FBF44D622B97917E006FEF11 /* SavedUsersCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB0F30FC2B95B6FB00252087 /* TutorialViewController.xib in Resources */,
+				FBF44D642B97917E006FEF11 /* SavedUsersCell.xib in Resources */,
 				FB3488DE2B91E96000C604E5 /* UserProfileViewController.xib in Resources */,
 				FB3488B22B91BE7F00C604E5 /* LaunchScreen.storyboard in Resources */,
 				FB3488AF2B91BE7F00C604E5 /* Assets.xcassets in Resources */,
@@ -411,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBF44D632B97917E006FEF11 /* SavedUsersCell.swift in Sources */,
 				FB3488BE2B91BF1A00C604E5 /* Network.swift in Sources */,
 				FB3488DD2B91E96000C604E5 /* UserProfileViewController.swift in Sources */,
 				FB3488C22B91BF3B00C604E5 /* Debug.swift in Sources */,
